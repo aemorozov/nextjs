@@ -1,6 +1,6 @@
 import React, { ReactComponentElement, ReactElement } from "react";
 
-const Heading = ({ tag, text }: { tag: string, text: string }) => {
+const Heading = ({ tag, text }) => {
     const Tag = tag || 'h1'
     return (
         <Tag>

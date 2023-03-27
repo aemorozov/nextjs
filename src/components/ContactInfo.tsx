@@ -36,11 +36,11 @@ const ContactInfo = ({ contact }: { contact: User }) => {
         <>
             <Heading tag="h3" text={name} />
             <div>
-                <strong>Email:</strong>
+                <strong>Email: </strong>
                 {email}
             </div>
             <div>
-                <strong>Address:</strong>
+                <strong>Address: </strong>
                 {street}, {suite}, {city}, {zipcode}
             </div>
         </>
