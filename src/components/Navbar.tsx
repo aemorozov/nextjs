@@ -6,7 +6,7 @@ import Image from 'next/image'
 const navigation = [
     {id: 1, title: 'Home', path: '/'},
     {id: 2, title: 'Posts', path: '/posts'},
-    {id: 3, title: 'Contact', path: '/contacts/contact'}
+    {id: 3, title: 'Contact', path: '/contacts'}
 ]
 
 const Navbar = () => {
