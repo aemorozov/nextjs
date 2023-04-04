@@ -1,16 +1,13 @@
 import Head from "next/head";
 import styles from "../styles/Socials.module.scss";
+import { socialsType } from "@/types";
 import { FC } from "react";
 
-type Socials = Array<{
-  id: number;
-  icon: string;
-  path: string;
-}>;
+type socialsTypeProps = {
+  socials: Array<socialsType>;
+};
 
-type SocialsProps = { socials: Socials };
-
-const Socials: FC<SocialsProps> = ({ socials }) => {
+const Socials: FC<socialsTypeProps> = ({ socials }) => {
   if (!socials) {
     return null;
   }

@@ -1,12 +1,13 @@
-import React, { ReactComponentElement, ReactElement } from "react";
+import React, { FC } from "react";
 
-const Heading = ({ tag, text }) => {
-    const Tag = tag || 'h1'
-    return (
-        <Tag>
-            { text }
-        </Tag>
-    )
-}
-  
-  export default Heading
+type tagAndTextTypeProps = {
+  tag?: keyof JSX.IntrinsicElements;
+  text: string;
+};
+
+const Heading: FC<tagAndTextTypeProps> = ({ tag, text }) => {
+  const Tag = tag || "h1";
+  return <Tag>{text}</Tag>;
+};
+
+export default Heading;

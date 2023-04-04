@@ -1,13 +1,13 @@
-import Heading from "./Heading"
-import Navbar from "./Navbar"
+import Heading from "./Heading";
+import Navbar from "./Navbar";
+import { FC } from "react";
 
-const Header = () => {
-    return (
-        <header>
-            <Navbar />
-        </header>
-    )
-    
-  }
-  
-  export default Header
+const Header: FC = () => {
+  return (
+    <header>
+      <Navbar />
+    </header>
+  );
+};
+
+export default Header;

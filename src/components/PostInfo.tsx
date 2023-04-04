@@ -1,20 +1,32 @@
 import Heading from "./Heading";
+import { postType } from "@/types";
+import { FC } from "react";
 
-const PostInfo = ({ post }) => {
-    const { title, body } = post || {}
+type postTypeProps = {
+  post: postType;
+};
 
-    if(!post) {
-        return (<Heading tag="h3" text="Empty post" />)
-    }
+const PostInfo: FC<postTypeProps> = ({ post }) => {
+  const { title, body } = post || {};
 
+  if (!post) {
     return (
-        <>
-          <Heading tag="h3" text={title} />
-          <div>
-              {body}
-          </div>
-        </>
-    )
-}
+      <Heading
+        tag="h3"
+        text="Empty post"
+      />
+    );
+  }
 
-export default PostInfo
+  return (
+    <>
+      <Heading
+        tag="h3"
+        text={title}
+      />
+      <div>{body}</div>
+    </>
+  );
+};
+
+export default PostInfo;

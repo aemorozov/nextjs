@@ -6,7 +6,7 @@ import Image from "next/image";
 import Socials from "@/components/Socials";
 
 export const getStaticProps = async () => {
-  const response = await fetch("http://localhost:3000/api/socials");
+  const response = await fetch(`${process.env.API_HOST}/socials`);
   const data = await response.json();
 
   if (!data) {

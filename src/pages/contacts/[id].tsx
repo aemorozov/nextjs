@@ -1,55 +1,38 @@
-import Head from "next/head"
-import ContactInfo from "@/components/ContactInfo"
+import Head from "next/head";
+import ContactInfo from "@/components/ContactInfo";
+import { GetServerSideProps } from "next";
+import { FC } from "react";
+import { contactType } from "@/types";
 
-export const getServerSideProps = async (context) => {
-  const { id } = context.params
-  const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-  const data = await response.json()
+type contactTypeProps = {
+  contact: contactType;
+};
 
-  if(!data) {
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const id = context.params?.id;
+  const response = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`);
+  const data = await response.json();
+
+  if (!data) {
     return {
-      notFound: true
-    }
+      notFound: true,
+    };
   }
 
   return {
-    props: { contact: data }
-  }
-}
+    props: { contact: data },
+  };
+};
 
-type User = {
-  id: number,
-  name: string,
-  username: string,
-  email: string,
-  address: {
-    street: string,
-    suite: string,
-    city: string,
-    zipcode: string,
-    geo: {
-      lat: string,
-      lng: string
-    }
-  },
-  phone: string,
-  website: string,
-  company: {
-    name: string,
-    catchPhrase: string,
-    bs: string
-  }
-}
+const Contact: FC<contactTypeProps> = ({ contact }) => {
+  return (
+    <>
+      <Head>
+        <title>Contact</title>
+      </Head>
+      <ContactInfo contact={contact} />
+    </>
+  );
+};
 
-const Contact = ({ contact }: { contact: User }) => {
-    return (
-      <>
-        <Head>
-          <title>Contact</title>
-        </Head>
-        <ContactInfo contact={ contact } />
-      </>
-    )
-  }
-  
-  export default Contact
+export default Contact;
